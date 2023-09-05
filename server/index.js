@@ -1,7 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const authRoutes = require('./routes/auth')
+const authRoutes = require('./routes/auth');
+const pageRoutes = require('./routes/page');
 
 const errorController = require('./controllers/error');
 
@@ -19,6 +20,7 @@ app.use((req, res, next) => {
 })
 
 app.use('/auth', authRoutes);
+app.use('/page', pageRoutes);
 
 app.use(errorController.get404);
 app.use(errorController.get500);
