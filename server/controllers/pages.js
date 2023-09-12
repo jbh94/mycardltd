@@ -22,12 +22,14 @@ exports.postPage = async (req, res, next) => {
     const title = req.body.title;
     const body = req.body.body;
     const user = req.body.user;
+    const uniqueUrlSuffix = req.body.uniqueUrlSuffix;
 
     try {
         const page = {
             title: title,
             body: body,
-            user: user
+            user: user,
+            uniqueUrlSuffix: uniqueUrlSuffix
         }
 
         const result = await Page.save(page);

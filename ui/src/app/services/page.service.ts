@@ -33,6 +33,7 @@ export class PageService {
     return this.http.post<Page>(this.url, {
       title: formData.title,
       body: formData.body,
+      uniqueUrlSuffix: formData.uniqueUrlSuffix,
       user: userId
     }, this.httpOptions).pipe(
       catchError(this.errorHandlerService.handleError<Page>("createPage()"))

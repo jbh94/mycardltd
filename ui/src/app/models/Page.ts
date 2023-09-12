@@ -3,5 +3,6 @@ export interface Page {
     title: string,
     body: string,
     user: string,
+    uniqueUrlSuffix: string
     createdat: Date;
 }

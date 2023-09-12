@@ -10,5 +10,9 @@
         <mat-label color="primary">Page Body</mat-label>
         <input matInput formControlName="body"/>
     </mat-form-field>
+    <mat-form-field>
+        <mat-label color="primary">Unique URL</mat-label>
+        <input matInput formControlName="uniqueUrlSuffix"/>
+    </mat-form-field>
     <button color="primary" [disabled]="!form.valid" mat-raised-button type="submit"><span>Post</span></button>
 </form>

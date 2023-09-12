@@ -1,10 +1,11 @@
 const db = require('../utils/database');
 
 module.exports = class Page {
-    constuctor(title, body, user) {
+    constuctor(title, body, user, uniqueUrlSuffix) {
         this.title = title;
         this.body = body;
         this.user = user;
+        this.uniqueUrlSuffix = uniqueUrlSuffix;
     }
 
 static fetchAll() {
@@ -13,7 +14,7 @@ static fetchAll() {
 
 static save(page) {
     return db.execute(
-        `INSERT INTO pages (title, body, user) VALUES (?, ?, ?)`, [page.title, page.body, page.user]
+        `INSERT INTO pages (title, body, user, uniqueUrlSuffix) VALUES (?, ?, ?, ?)`, [page.title, page.body, page.user, page.uniqueUrlSuffix]
     );
 }
 

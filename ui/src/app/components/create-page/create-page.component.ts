@@ -28,11 +28,12 @@ export class CreatePageComponent implements OnInit {
   createFormGroup(): FormGroup {
     return new FormGroup({
       title: new FormControl("", [Validators.required, Validators.minLength(5)]),
-      body: new FormControl("", [Validators.required, Validators.minLength(10)])
+      body: new FormControl("", [Validators.required, Validators.minLength(10)]),
+      uniqueUrlSuffix: new FormControl("", [Validators.required, Validators.minLength(2)])
     })
   }
 
-  onSubmit(formData: Pick<Page, "title" | "body">): void {
+  onSubmit(formData: Pick<Page, "title" | "body" | "uniqueUrlSuffix">): void {
     this.pageService.createPage(formData, this.authService.userId).pipe(first()).subscribe(() => {
       this.create.emit(null);
     })
